@@ -10,5 +10,5 @@ def test_Auth(browser):
         login_page.go_to_site()      
         login_page.enter_login(ConfigClass().get_second_user_login())
         login_page.enter_password(ConfigClass().get_second_user_pass()) 
-        login_page.clic_submit()
+        login_page.click_submit()
         
