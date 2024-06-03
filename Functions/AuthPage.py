@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-
+from BaseClass import BasePage
    
 class AuthPageLocators():
 
@@ -7,11 +7,19 @@ class AuthPageLocators():
     AUTH_PASSWORD = (By.CSS_SELECTOR, "#Password")    
     AUTH_BUTTON = (By.CSS_SELECTOR, "button['#submitLoginForm']")
 
-class AuthPage():
-    def auth_user(self, username, password):        
-        username_field = self.browser.find_element(*AuthPageLocators.AUTH_FORM)
+class AuthPage(BasePage):
+
+    def enter_login(self, username: str):
+        username_field = self.find_element(*AuthPageLocators.AUTH_FORM)
+        username_field.click()
         username_field.send_keys(username)
-        password_field = self.browser.find_element(*AuthPageLocators.AUTH_PASSWORD)
-        password_field.send_keys(password)        
-        button_submit = self.browser.find_element(*AuthPageLocators.AUTH_BUTTON)
-        button_submit.click()    
+        return username_field
+
+    def enter_password(self, password: str):
+        password_field = self.find_element(*AuthPageLocators.AUTH_PASSWORD)
+        password_field.click()
+        password_field.send_keys(password)
+        return password_field
+
+    def click_submit(self):
+        return self.find_element(*AuthPageLocators.AUTH_BUTTON).click()
