@@ -20,9 +20,9 @@ def test_C411202_AddOperationsInRole(browser):
         login_page.enter_password(ConfigClass().get_second_user_pass()) 
         login_page.click_submit()
         menu_page.simple_pause(2)
+        
+        
         # add operation
-        
-        
         menu_page.click_menu_selector()
         menu_page.simple_pause(2)
         menu_page.click_configuration()
@@ -31,7 +31,7 @@ def test_C411202_AddOperationsInRole(browser):
         menu_page.click_menu_role()
         menu_page.simple_pause(2)
         filter_page.click_add_filter_role()
-        menu_page.simple_pause(2)
+        menu_page.simple_pause(2)      
         filter_page.input_input_name_field("Наименование роли")
         menu_page.simple_pause(2)
         filter_page.input_search_input_name_object("zigol2")
@@ -53,6 +53,7 @@ def test_C411202_AddOperationsInRole(browser):
         menu_page.click_menu_ok()
         menu_page.simple_pause(2)
         menu_page.click_save_button()
+        menu_page.simple_pause(10)
 
 
 

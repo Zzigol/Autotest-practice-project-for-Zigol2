@@ -7,23 +7,20 @@ class FilterButtonsLocators():
     # Добавить фильтр в реестре
     ADD_FILTER_ROLE_BUTTON = (By.XPATH, "//*[name()='rect' and contains(@opacity,'0.2')]")
 
-    # Нажать "Выбрать" в поле фильтры в реестре
-    CHOOSE_FILTER_ROLE_BUTTON = (By.XPATH, "//div[@data-testid='field']//div[@role='button']//div//div[1]//*[name()='svg']")
-
     # Нажать "Название поля" в поле фильтра в реестре
-    ROLE_NAME_BUTTON = (By.XPATH, "(//input[@id='search-select-field-fieldName']") 
+    INPUT_NAME_FILTER = (By.XPATH, '//*[@id="search-select-field-fieldName"]') 
 
     # Выбрать поле "Значение поля" в реестре
-    ROLE_FILD_VALUE_BUTTON = (By.XPATH, "//input[@id='text-field-fieldValue']")
+    ROLE_FILD_VALUE_BUTTON = (By.XPATH, '//*[@id="text-field-fieldValue"]')
 
     # Применить фильтр в реестре
     APPLY_FILTER_BUTTON = (By.XPATH, "//button[@data-testid='apply-filter']")
 
     # Добавить фильтр в ссылке на коллекцию
-    ADD_FILTER_OPERATION_BUTTON = (By.XPATH, "//button[@data-testid='add-condition']")
+    ADD_FILTER_OPERATION_BUTTON = (By.XPATH, "/html/body/div/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/button")
 
     # Нажать "Название поля" в поле фильтры в ссылке на коллекцию
-    CHOOSE_FILTER_OPERATION_BUTTON = (By.XPATH, "//input[@id='search-select-field-fieldName']")
+    CHOOSE_FILTER_OPERATION_BUTTON = (By.XPATH, "//*[@id='search-select-field-fieldName']")
 
     # Выбрать поле "Значение поля" в ссылке на коллекцию
     OPERATION_FILD_VALUE_BUTTON = (By.XPATH, "//input[@id='text-field-fieldValue']")
@@ -40,17 +37,13 @@ class FilterButtonsPage(BasePage):
         """Функция добавляет фильтр в роли"""
         self.find_element(FilterButtonsLocators.ADD_FILTER_ROLE_BUTTON).click()
 
-    def click_choose_filter_role(self):
-        """Функция добавляет фильтр в роли"""
-        self.find_element(FilterButtonsLocators.CHOOSE_FILTER_ROLE_BUTTON).click()
-
     def input_input_name_field(self, name_field: str) -> str:
         """Нажать в поле Название поля и ввести значение
 
         Args:
             - name_field - название поля
         """
-        inputnamefield = self.find_element(FilterButtonsLocators.ROLE_NAME_BUTTON)
+        inputnamefield = self.find_element(FilterButtonsLocators.INPUT_NAME_FILTER)
         FIELD_LOCATOR = (By.XPATH, f'//div[@data-testid="menuitem"]//*[text()="{name_field}"]')
         inputnamefield.click()
         inputnamefield.send_keys(Keys.CONTROL + 'a')
