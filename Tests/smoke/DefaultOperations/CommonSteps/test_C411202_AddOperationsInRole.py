@@ -53,6 +53,7 @@ def test_C411202_AddOperationsInRole(browser):
         menu_page.click_menu_ok()
         menu_page.simple_pause(2)
         menu_page.click_save_button()
+        menu_page.save_window()
         menu_page.simple_pause(10)
 
 

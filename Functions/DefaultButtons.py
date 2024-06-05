@@ -34,6 +34,9 @@ class DefaultButtonsLocators():
     # Кнопка контекстного меню (ввиде трех точек)
     DOTS_BUTTON = (By.XPATH, '//span[contains(@id, "cell-context-menu-col-")]')
 
+    # Окно об успешном сохранении
+    SAVE_WINDOW = (By.XPATH, '//strong')
+
 
 
 
@@ -95,3 +98,6 @@ class DefaultButtonsPage(BasePage):
         self.buttons = self.find_elements(DefaultButtonsLocators.DOTS_BUTTON)
         return self.buttons[row].click()    
                             
+    def save_window(self):
+        """Функция находит подтверждение сохранения"""
+        self.find_element(DefaultButtonsLocators.SAVE_WINDOW)                        
